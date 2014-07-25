@@ -165,8 +165,8 @@ public class MemberDAO {
 	public boolean search(String id, String password){
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		int result = 0;
-		boolean list = true;
+		ResultSet rs = null;
+		boolean list = false;
 		
 		try {
 			con = DriverManager.getConnection(url, userid, passwd1);
@@ -174,14 +174,15 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, password);
-			result=pstmt.executeUpdate();
+			rs=pstmt.executeQuery();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			try {
-				
+				if(rs!=null)
+					rs.close();
 				if(pstmt!=null)
 				pstmt.close();
 				if(con!=null)

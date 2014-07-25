@@ -240,12 +240,9 @@ public class WorkshopGUI {
 				}
 				else{
 					boolean existLogin = dao.search(id, password);
-					
 					if(existLogin){
 						JOptionPane.showMessageDialog(null, "로그인 성공");
-						/*tfid.setVisible(false);
-						tfpasswd.setVisible(false);*/
-						getContentPane().panel_1.removeAll();
+						//frame.getContentPane().removeAll();
 						btnlogin.setText("로그아웃");
 					}
 					else{
