@@ -240,7 +240,7 @@ public class WorkshopGUI {
 				}
 				else{
 					boolean existLogin = dao.search(id, password);
-					if(existLogin){
+					if(existLogin==true){
 						JOptionPane.showMessageDialog(null, "로그인 성공");
 						//frame.getContentPane().removeAll();
 						btnlogin.setText("로그아웃");
